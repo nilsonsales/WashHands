@@ -13,5 +13,5 @@ With the COVID-19 crises, and the quarantine we're put under, to avoid getting c
 
 I realised that our notion of time isn't very precise, and I was thinking about a device that could start without one having to touch it. That's when I thought about using the ultrasound sensor with Arduino. This project helps you manage your time while washing your hands, to make sure you got rid of the viruses.
 
-For images and schematic, check the Project on the Arduino community:
+Link for the Project in the Arduino community:
 https://create.arduino.cc/projecthub/nilsonsales/washhands-19ceac
