@@ -13,7 +13,9 @@ With the COVID-19 crisis and the quarantine we face, to avoid getting infected w
 
 - Wash them for at least 20 seconds;
 
-But the human brain isn't very good at tracking the correct time that you need, and we usually stop washing them before it. That's when I thought on developing a device that could track the time without one having to touch it (to avoid the contamination). Using the ultrasonic sensor with Arduino, this project aims to help you manage your time while washing your hands, to make sure you got rid of the viruses.
+However the human brain isn't a very good counter, so we usually stop washing our hands before the 20 seconds. That's why I thought on developing a device that could count the time for you without one having to touch it (to avoid the contamination). Using the ultrasonic sensor with Arduino, this project aims to help you manage your time while washing your hands, to make sure you got rid of the viruses.
+
+> [Demo video](https://youtu.be/kL4qCm2LxiU)
 
 Link for the project on the Arduino Community:
 https://create.arduino.cc/projecthub/nilsonsales/washhands-19ceac
