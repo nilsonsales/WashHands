@@ -1,10 +1,12 @@
 /*** --- WashHand Project --- ***/
 /** Author: Nilson Sales **/
 
+
 // Loading ultrasonic library
 #include <Ultrasonic.h>
 
-// Defining pins for echo and trigger
+
+// Defining pins for echo, trigger, leds and buzz
 #define TRIGGER_PIN  4
 #define ECHO_PIN     5
 
@@ -14,11 +16,13 @@
 
 #define BUZZ         3
 
+
 // Initialising the sensor
 Ultrasonic ultrasonic(TRIGGER_PIN, ECHO_PIN);
 
 void setup() {
-  // put your setup code here, to run once:
+  // code to run once:
+  
   Serial.begin(9600);
   Serial.println("Reading sensor data...");
 
@@ -30,7 +34,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // code to run repeatedly:
   
   float cmMsec, inMsec;
   long microsec = ultrasonic.timing();
@@ -39,13 +43,13 @@ void loop() {
   //inMsec = ultrasonic.convert(microsec, Ultrasonic::IN);
   //Serial.print("MS: ");
   //Serial.print(microsec);
-  //Serial.print(", CM: ");
+  //Serial.print(", CM: ");   /* Uncomment these lines to test the ultrasonic sensor */
   //Serial.print(cmMsec);
   //Serial.print(", IN: ");
-  //
-  Serial.println(inMsec);
+  //Serial.println(inMsec);
+  
 
-  if(cmMsec <= 20){ // If closer to 20 cm, activate
+  if(cmMsec <= 20){ // If detects object closer to 20 cm, activate
     start_counter();
   }
 
@@ -55,7 +59,7 @@ void loop() {
 
 void start_counter(){
   
-  // Confirmation blink
+  // Confirmation blink and buzz
   digitalWrite(RED_PIN, HIGH);
   digitalWrite(YELLOW_PIN, HIGH);
   digitalWrite(GREEN_PIN, HIGH);
@@ -66,19 +70,18 @@ void start_counter(){
   digitalWrite(GREEN_PIN, LOW);
 
   
-  for(int i = 0; i <= 18; ++i){ // 18 sec
+  for(int i = 0; i <= 18; ++i){ // blink for 18 sec
     digitalWrite(RED_PIN, HIGH);
     delay(700);
     digitalWrite(RED_PIN, LOW);
     delay(300);
   }
 
-  digitalWrite(YELLOW_PIN, HIGH); // 2 sec
+  digitalWrite(YELLOW_PIN, HIGH); // blink for 2 sec
   delay(2000);
   digitalWrite(YELLOW_PIN, LOW);
 
-  // Blink Green 3x
-  for(int i = 0; i <= 3; ++i){
+  for(int i = 0; i <= 3; ++i){  // blink 3 times and buzz
     digitalWrite(GREEN_PIN, HIGH);
     tone(BUZZ, 349, 500); // 330
     delay(1000);
